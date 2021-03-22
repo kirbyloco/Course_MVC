@@ -23,7 +23,7 @@ namespace course_std.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
