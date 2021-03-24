@@ -25,9 +25,24 @@
                             <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    選課工具
+                                    選課
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">初選</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">加退選</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">選課結果</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    輔助工具
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Tool"
+                                        asp-action="Credits">畢業學分查詢</a>
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Tool"
                                         asp-action="CourseTime">上課時間對照表</a>
                                 </div>
