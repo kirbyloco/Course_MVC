@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "畢業學分查詢";
+
+    List<String> academic = new List<String>();
+    academic.Add("109");
+    academic.Add("108");
+    academic.Add("107");
+    academic.Add("106");
+
+    List<String> schoolsys = new List<String>();
+    schoolsys.Add("日間部二專");
+    schoolsys.Add("日間部五專");
+    schoolsys.Add("日間部二技");
+    schoolsys.Add("日間部四技");
+    schoolsys.Add("日間部碩士春季班");
+    schoolsys.Add("日間部碩士秋季班");
+    schoolsys.Add("日間部碩士");
+    schoolsys.Add("日間部博士");
+    schoolsys.Add("日四技產學攜手專班");
+    schoolsys.Add("進修部二專");
+    schoolsys.Add("進修部二技");
+    schoolsys.Add("進修部四技");
+    schoolsys.Add("進修部碩士春季班");
+    schoolsys.Add("進修部碩士秋季班");
+    schoolsys.Add("碩士在職專班");
+    schoolsys.Add("境外碩士在職春季專班");
+    schoolsys.Add("境外碩士在職秋季專班");
+    schoolsys.Add("進修學院二專");
+    schoolsys.Add("進修學院二技");
+    schoolsys.Add("學士後學程");
+    schoolsys.Add("二技在職專班");
+    schoolsys.Add("進四技產學攜手專班");
+    schoolsys.Add("進修部碩士");
+}
+
+<form>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">學年度</label>
+        <select class="form-control" placeholder="">
+            @for (var i = 0; i < academic.Count; i++)
+            {
+                <option>@academic[i]</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">學制</label>
+        <select class="form-control" placeholder="">
+            @for (var i = 0; i < schoolsys.Count; i++)
+            {
+                <option>@schoolsys[i]</option>
+            }
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">查詢</button>
+</form>
