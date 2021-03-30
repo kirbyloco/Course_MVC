@@ -1,5 +1,45 @@
 @{
     ViewData["Title"] = "初選";
+
+    List<String> academic = new List<String>();
+    academic.Add("");
+    academic.Add("109");
+    academic.Add("108");
+    academic.Add("107");
+    academic.Add("106");
+
+    List<String> schoolsys = new List<String>();
+    schoolsys.Add("");
+    schoolsys.Add("日間部二專");
+    schoolsys.Add("日間部五專");
+    schoolsys.Add("日間部二技");
+    schoolsys.Add("日間部四技");
+    schoolsys.Add("日間部碩士春季班");
+    schoolsys.Add("日間部碩士秋季班");
+    schoolsys.Add("日間部碩士");
+    schoolsys.Add("日間部博士");
+    schoolsys.Add("日四技產學攜手專班");
+    schoolsys.Add("進修部二專");
+    schoolsys.Add("進修部二技");
+    schoolsys.Add("進修部四技");
+    schoolsys.Add("進修部碩士春季班");
+    schoolsys.Add("進修部碩士秋季班");
+    schoolsys.Add("碩士在職專班");
+    schoolsys.Add("境外碩士在職春季專班");
+    schoolsys.Add("境外碩士在職秋季專班");
+    schoolsys.Add("進修學院二專");
+    schoolsys.Add("進修學院二技");
+    schoolsys.Add("學士後學程");
+    schoolsys.Add("二技在職專班");
+    schoolsys.Add("進四技產學攜手專班");
+    schoolsys.Add("進修部碩士");
+
+    List<String> grade = new List<String>();
+    grade.Add("");
+    grade.Add("一年級");
+    grade.Add("二年級");
+    grade.Add("三年級");
+    grade.Add("四年級");
 }
 
 <form>
@@ -7,19 +47,32 @@
         <div class="col">
             <label>學制</label>
             <select type="text" class="form-control">
+                @for (var i = 0; i < academic.Count; i++)
+                {
+                    <option>@academic[i]</option>
+                }
             </select>
         </div>
         <div class="col">
             <label>科系</label>
             <select type="text" class="form-control">
+                @for (var i = 0; i < schoolsys.Count; i++)
+                {
+                    <option>@schoolsys[i]</option>
+                }
             </select>
         </div>
         <div class="col">
             <label>年級</label>
             <select type="text" class="form-control">
+                @for (var i = 0; i < grade.Count; i++)
+                {
+                    <option>@grade[i]</option>
+                }
             </select>
         </div>
         <div class="col col-sm-1">
+            @* 避免排版問題 *@
             <label>　</label>
             <button class="btn btn-primary form-control">查詢</button>
         </div>
