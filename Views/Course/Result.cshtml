@@ -1,3 +1,33 @@
 @{
     ViewData["Title"] = "選課結果";
 }
+
+<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+    <div class="toast" style="position: absolute; top: 0; right: 0;">
+        <div class="toast-header">
+            <strong class="mr-auto">選課系統</strong>
+        </div>
+        <div class="toast-body">
+            已成功退選
+        </div>
+    </div>
+
+    <h3>尚未到選課結果的時間</h3>
+
+    您已經選了
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">設施規劃</h5>
+                    <h6 class="card-subtitle mb-2">授課教師：燈燈燈</h6>
+                    <p class="card-text">必選修：選修　上課時間：(三)11~13<br>
+                        學分：3　教室：育301</p>
+                    <button class="btn btn-warning" onclick="$('.toast').toast('show')">退選</button>
+                    <button class=" btn btn-primary">課程詳細</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
