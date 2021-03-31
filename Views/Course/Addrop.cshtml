@@ -1,3 +1,5 @@
+@model IEnumerable<course_std.Models.Course>
+
 @{
     ViewData["Title"] = "初選";
 
@@ -82,17 +84,21 @@
 
 <hr>
 
-<div class="row">
+@foreach (var item in Model)
+{
+    <div class="row">
     <div class="col-sm-5">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">設施規劃</h5>
-                <h6 class="card-subtitle mb-2">授課教師：燈燈燈</h6>
-                <p class="card-text">必選修：選修　上課時間：(三)11~13<br>
-                    學分：3　教室：育301</p>
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.CourseName)</h5>
+                <h6 class="card-subtitle mb-2">授課教師：@Html.DisplayFor(modelItem => item.Teacher)</h6>
+                <p class="card-text">必選修：@Html.DisplayFor(modelItem => item.Reqele)　上課時間：@Html.DisplayFor(modelItem =>
+                    item.Date)<br>
+                    學分：@Html.DisplayFor(modelItem => item.Credit)　教室：@Html.DisplayFor(modelItem => item.Classroom)</p>
                 <button class="btn btn-primary">加選</button>
                 <button class="btn btn-primary">課程詳細</button>
             </div>
         </div>
     </div>
 </div>
+}
