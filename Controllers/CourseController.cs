@@ -1,4 +1,5 @@
 using System;
+using System.Dynamic;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +22,9 @@ namespace course_std.Controllers
 
         public async Task<IActionResult> Addrop()
         {
-            return View(await _context.Course.ToListAsync());
+            dynamic model = new ExpandoObject();
+            model.Course = await _context.Course.ToListAsync();
+            return View(model);
         }
         public IActionResult Result()
         {

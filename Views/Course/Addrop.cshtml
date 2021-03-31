@@ -1,4 +1,4 @@
-@model IEnumerable<course_std.Models.Course>
+@model dynamic
 
 @{
     ViewData["Title"] = "初選";
@@ -84,17 +84,15 @@
 
 <hr>
 
-@foreach (var item in Model)
-{
-    <div class="row">
+@foreach (Course course in Model.Course) {
+<div class="row">
     <div class="col-sm-5">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.CourseName)</h5>
-                <h6 class="card-subtitle mb-2">授課教師：@Html.DisplayFor(modelItem => item.Teacher)</h6>
-                <p class="card-text">必選修：@Html.DisplayFor(modelItem => item.Reqele)　上課時間：@Html.DisplayFor(modelItem =>
-                    item.Date)<br>
-                    學分：@Html.DisplayFor(modelItem => item.Credit)　教室：@Html.DisplayFor(modelItem => item.Classroom)</p>
+                <h5 class="card-title">@course.CourseName</h5>
+                <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
+                <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
+                    學分：@course.Credit　教室：@course.Classroom</p>
                 <button class="btn btn-primary">加選</button>
                 <button class="btn btn-primary">課程詳細</button>
             </div>
