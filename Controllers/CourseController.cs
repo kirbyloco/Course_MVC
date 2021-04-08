@@ -20,10 +20,15 @@ namespace course_std.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Addrop()
+        public async Task<IActionResult> Addrop(string academic, string schoolsys, string grade)
         {
+            Dictionary<string, string> data = new Dictionary<string, string>();
+            data.Add("academic", academic);
+            data.Add("schoolsys", schoolsys);
+            data.Add("grade", grade);
             dynamic model = new ExpandoObject();
             model.Course = await _context.Course.ToListAsync();
+            model.Data = data;
             return View(model);
         }
         public IActionResult Result()

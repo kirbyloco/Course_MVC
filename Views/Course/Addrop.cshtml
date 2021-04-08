@@ -44,32 +44,50 @@
     grade.Add("四年級");
 }
 
-<form>
+<form method="GET">
     <div class="form-row">
         <div class="col">
             <label>學制</label>
-            <select type="text" class="form-control">
+            <select type="text" name="academic" class="form-control">
                 @for (var i = 0; i < academic.Count; i++)
                 {
-                    <option>@academic[i]</option>
+                    if(academic[i] == Model.Data["academic"]){
+                        <option selected>@academic[i]</option>
+                    }
+                    else{
+                        <option>@academic[i]</option>
+                    }
+
                 }
             </select>
         </div>
         <div class="col">
             <label>科系</label>
-            <select type="text" class="form-control">
+            <select type="text" name="schoolsys" class="form-control">
                 @for (var i = 0; i < schoolsys.Count; i++)
                 {
-                    <option>@schoolsys[i]</option>
+                    if(schoolsys[i] == Model.Data["schoolsys"]){
+                        <option selected>@schoolsys[i]</option>
+                    }
+                    else{
+                        <option>@schoolsys[i]</option>
+                    }
+
                 }
             </select>
         </div>
         <div class="col">
             <label>年級</label>
-            <select type="text" class="form-control">
+            <select type="text" name="grade" class="form-control">
                 @for (var i = 0; i < grade.Count; i++)
                 {
-                    <option>@grade[i]</option>
+                    if(grade[i] == Model.Data["grade"]){
+                        <option selected>@grade[i]</option>
+                    }
+                    else{
+                        <option>@grade[i]</option>
+                    }
+
                 }
             </select>
         </div>
@@ -78,25 +96,25 @@
             <label>　</label>
             <button class="btn btn-primary form-control">查詢</button>
         </div>
-
     </div>
 </form>
 
 <hr>
 
-@foreach (Course course in Model.Course) {
-<div class="row">
-    <div class="col-sm-5">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@course.CourseName</h5>
-                <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
-                <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
-                    學分：@course.Credit　教室：@course.Classroom</p>
-                <button class="btn btn-primary">加選</button>
-                <button class="btn btn-primary">課程詳細</button>
+@foreach (Course course in Model.Course)
+{
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@course.CourseName</h5>
+                    <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
+                    <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
+                        學分：@course.Credit　教室：@course.Classroom</p>
+                    <button class="btn btn-primary">加選</button>
+                    <button class="btn btn-primary">課程詳細</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 }
