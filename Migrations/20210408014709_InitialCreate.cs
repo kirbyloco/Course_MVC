@@ -17,7 +17,10 @@ namespace course_std.Migrations
                     Reqele = table.Column<string>(type: "TEXT", nullable: true),
                     Date = table.Column<string>(type: "TEXT", nullable: true),
                     Credit = table.Column<int>(type: "INTEGER", nullable: false),
-                    Classroom = table.Column<string>(type: "TEXT", nullable: true)
+                    Classroom = table.Column<string>(type: "TEXT", nullable: true),
+                    Academic = table.Column<string>(type: "TEXT", nullable: true),
+                    Schoolsys = table.Column<string>(type: "TEXT", nullable: true),
+                    Grade = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

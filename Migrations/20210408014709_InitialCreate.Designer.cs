@@ -8,7 +8,7 @@ using course_std.Data;
 namespace course_std.Migrations
 {
     [DbContext(typeof(CourseContext))]
-    [Migration("20210331053151_InitialCreate")]
+    [Migration("20210408014709_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,9 @@ namespace course_std.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Academic")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Classroom")
                         .HasColumnType("TEXT");
 
@@ -35,7 +38,13 @@ namespace course_std.Migrations
                     b.Property<string>("Date")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Grade")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Reqele")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Schoolsys")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Teacher")

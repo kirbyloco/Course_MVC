@@ -12,5 +12,8 @@ namespace course_std.Models
         public string Date { get; set; }
         public int Credit { get; set; }
         public string Classroom { get; set; }
+        public string Academic { get; set; }
+        public string Schoolsys { get; set; }
+        public string Grade { get; set; }
     }
 }

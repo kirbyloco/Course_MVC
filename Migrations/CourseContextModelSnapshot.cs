@@ -21,6 +21,9 @@ namespace course_std.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Academic")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Classroom")
                         .HasColumnType("TEXT");
 
@@ -33,7 +36,13 @@ namespace course_std.Migrations
                     b.Property<string>("Date")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Grade")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Reqele")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Schoolsys")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Teacher")
