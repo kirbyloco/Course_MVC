@@ -51,7 +51,7 @@
             <select type="text" name="academic" class="form-control">
                 @for (var i = 0; i < academic.Count; i++)
                 {
-                    if(academic[i] == Model.Data["academic"]){
+                    if(academic[i] == Model.Academic){
                         <option selected>@academic[i]</option>
                     }
                     else{
@@ -66,7 +66,7 @@
             <select type="text" name="schoolsys" class="form-control">
                 @for (var i = 0; i < schoolsys.Count; i++)
                 {
-                    if(schoolsys[i] == Model.Data["schoolsys"]){
+                    if(schoolsys[i] == Model.Schoolsys){
                         <option selected>@schoolsys[i]</option>
                     }
                     else{
@@ -81,7 +81,7 @@
             <select type="text" name="grade" class="form-control">
                 @for (var i = 0; i < grade.Count; i++)
                 {
-                    if(grade[i] == Model.Data["grade"]){
+                    if(grade[i] == Model.Grade){
                         <option selected>@grade[i]</option>
                     }
                     else{
