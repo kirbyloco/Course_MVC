@@ -114,20 +114,20 @@
 
 <hr>
 
+<div class="row row-cols-1 row-cols-md-3">
 @foreach (Course course in Model.Course)
 {
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@course.CourseName</h5>
-                    <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
-                    <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
-                        學分：@course.Credit　教室：@course.Classroom</p>
-                    <button class="btn btn-primary">加選</button>
-                    <button class="btn btn-primary">課程詳細</button>
-                </div>
+    <div class="col mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@course.CourseName</h5>
+                <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
+                <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
+                    學分：@course.Credit　教室：@course.Classroom</p>
+                <button class="btn btn-primary">加選</button>
+                <button class="btn btn-primary">課程詳細</button>
             </div>
         </div>
     </div>
 }
+</div>
