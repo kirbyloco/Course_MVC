@@ -26,6 +26,7 @@ namespace course_std
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
             services.AddDbContext<CourseContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("CourseContext")));
         }
@@ -48,6 +49,7 @@ namespace course_std
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -55,6 +57,7 @@ namespace course_std
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
