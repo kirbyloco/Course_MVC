@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace course_std.Areas.Identity.Data
 {
-    public class course_stdIdentityDbContext : IdentityDbContext<IdentityUser>
+    public class UserDbContext : IdentityDbContext<IdentityUser>
     {
-        public course_stdIdentityDbContext(DbContextOptions<course_stdIdentityDbContext> options)
+        public UserDbContext(DbContextOptions<UserDbContext> options)
             : base(options)
         {
         }

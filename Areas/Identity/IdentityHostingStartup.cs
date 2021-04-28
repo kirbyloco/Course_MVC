@@ -14,13 +14,14 @@ namespace course_std.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<course_stdIdentityDbContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("course_stdIdentityDbContextConnection")));
+            builder.ConfigureServices((context, services) =>
+            {
+                services.AddDbContext<UserDbContext>(options =>
+                    options.UseSqlite(
+                        context.Configuration.GetConnectionString("UserContext")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<course_stdIdentityDbContext>();
+                    .AddEntityFrameworkStores<UserDbContext>();
             });
         }
     }
