@@ -5,12 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using course_std.Data;
 using course_std.Models;
 
 namespace course_std.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
         private readonly CourseContext _context;
