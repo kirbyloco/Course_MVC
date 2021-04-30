@@ -22,8 +22,9 @@ namespace course_std.Controllers
         {
             return View();
         }
-        public IActionResult Credits()
+        public IActionResult Credits(string year, string academic, string schoolsys)
         {
+            // ViewData.Add()
             return View();
         }
 
