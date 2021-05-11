@@ -29,8 +29,10 @@ namespace course_std.Areas.Identity.Pages.Account.Manage
             _emailSender = emailSender;
         }
 
+        [Display(Name = "學號")]
         public string Username { get; set; }
 
+        [Display(Name = "電子信箱")]
         public string Email { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
@@ -45,7 +47,7 @@ namespace course_std.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "新的電子信箱")]
             public string NewEmail { get; set; }
         }
 

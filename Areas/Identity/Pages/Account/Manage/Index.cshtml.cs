@@ -22,6 +22,7 @@ namespace course_std.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
         }
 
+        [Display(Name = "學號")]
         public string Username { get; set; }
 
         [TempData]
@@ -33,7 +34,7 @@ namespace course_std.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "電話號碼")]
             public string PhoneNumber { get; set; }
         }
 
@@ -88,7 +89,7 @@ namespace course_std.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "你的基本資料已更新";
             return RedirectToPage();
         }
     }
