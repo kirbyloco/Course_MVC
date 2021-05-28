@@ -30,6 +30,8 @@ namespace course_std
             services.AddRazorPages();
             services.AddDbContext<CourseContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("CourseContext")));
+            services.AddDbContext<CreditsContext>(options =>
+            options.UseSqlite(Configuration.GetConnectionString("CreditsContext")));
 
             services.Configure<IdentityOptions>(options =>
             {
