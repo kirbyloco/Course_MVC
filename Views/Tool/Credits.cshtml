@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@model dynamic
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
@@ -8,86 +9,110 @@
 
     List<String> academic = new List<String>();
     academic.Add("");
-    academic.Add("日間部二專");
-    academic.Add("日間部五專");
     academic.Add("日間部二技");
     academic.Add("日間部四技");
-    academic.Add("日間部碩士春季班");
-    academic.Add("日間部碩士秋季班");
-    academic.Add("日間部碩士");
-    academic.Add("日間部博士");
-    academic.Add("日四技產學攜手專班");
-    academic.Add("進修部二專");
+    academic.Add("日間部五專");
+    academic.Add("博士班");
+    academic.Add("碩專班");
+    academic.Add("研究所");
+    academic.Add("五專科");
+    academic.Add("進修學院二技");
     academic.Add("進修部二技");
     academic.Add("進修部四技");
-    academic.Add("進修部碩士春季班");
-    academic.Add("進修部碩士秋季班");
-    academic.Add("碩士在職專班");
-    academic.Add("境外碩士在職春季專班");
-    academic.Add("境外碩士在職秋季專班");
-    academic.Add("進修學院二專");
-    academic.Add("進修學院二技");
-    academic.Add("學士後學程");
-    academic.Add("二技在職專班");
-    academic.Add("進四技產學攜手專班");
-    academic.Add("進修部碩士");
+    academic.Add("院二技");
+    academic.Add("進修部碩專班");
+
 
     List<String> schoolsys = new List<String>();
     schoolsys.Add("");
-    schoolsys.Add("國際企業系");
-    schoolsys.Add("金融資訊系");
-    schoolsys.Add("化學工程與材料工程系");
-    schoolsys.Add("機械工程系");
-    schoolsys.Add("模具工程系");
-    schoolsys.Add("工業工程與管理系");
-    schoolsys.Add("電機工程系");
-    schoolsys.Add("電子工程系");
+    schoolsys.Add("人力資源發展系");
     schoolsys.Add("企業管理系");
+    schoolsys.Add("供應鏈管理系");
+    schoolsys.Add("創業管理碩士學位學程");
+    schoolsys.Add("化材系");
+    schoolsys.Add("博雅教育中心共同教育課程");
+    schoolsys.Add("商務應用資訊系");
+    schoolsys.Add("國際企業系");
+    schoolsys.Add("國際管理碩士學位學程");
+    schoolsys.Add("土木工程系");
+    schoolsys.Add("基礎教育中心共同教育課程");
+    schoolsys.Add("工業工程與管理系");
+    schoolsys.Add("工業設計系");
+    schoolsys.Add("微電子工程系");
+    schoolsys.Add("應用德語系");
+    schoolsys.Add("應用日語系");
+    schoolsys.Add("應用英語系");
+    schoolsys.Add("文化創意產業系");
+    schoolsys.Add("智慧商務系");
+    schoolsys.Add("會計系");
+    schoolsys.Add("模具工程系");
+    schoolsys.Add("機械工程系");
+    schoolsys.Add("水圈學院水產科技產業");
+    schoolsys.Add("水產食品科學系");
+    schoolsys.Add("水產養殖系");
+    schoolsys.Add("海事資訊科技系");
+    schoolsys.Add("海洋事務與產業管理研究所");
+    schoolsys.Add("海洋休閒管理系");
+    schoolsys.Add("海洋環境工程系");
+    schoolsys.Add("海洋生物技術系");
+    schoolsys.Add("漁業生產與管理系");
+    schoolsys.Add("營建工程系");
+    schoolsys.Add("環境與安全衛生工程系");
+    schoolsys.Add("科技法律研究所");
+    schoolsys.Add("管理學院");
+    schoolsys.Add("航運技術系");
+    schoolsys.Add("航運管理系");
+    schoolsys.Add("行銷與流通管理系");
     schoolsys.Add("觀光管理系");
-    schoolsys.Add("會計資訊系");
+    schoolsys.Add("財務管理系");
+    schoolsys.Add("財務金融學院");
     schoolsys.Add("財政稅務系");
-    schoolsys.Add("基礎教育中心");
-    schoolsys.Add("博雅教育中心");
-    schoolsys.Add("外語教育中心");
-    schoolsys.Add("跨外校修課生");
-    schoolsys.Add("體育課程");
-
-    List<String> year = new List<string>();
-    year.Add("");
-    year.Add("109");
-    year.Add("108");
-    year.Add("107");
-    year.Add("106");
-    year.Add("105");
+    schoolsys.Add("資訊工程系");
+    schoolsys.Add("資訊管理系");
+    schoolsys.Add("資訊財務碩士學位學程");
+    schoolsys.Add("輪機工程系");
+    schoolsys.Add("造船及海洋工程系");
+    schoolsys.Add("運籌管理系");
+    schoolsys.Add("金融系");
+    schoolsys.Add("金融資訊系");
+    schoolsys.Add("電子工程系");
+    schoolsys.Add("電機工程系");
+    schoolsys.Add("電腦與通訊工程系");
+    schoolsys.Add("電訊工程系");
+    schoolsys.Add("風險管理與保險系");
+    schoolsys.Add("高階主管經營管理EMBA");
 
 }
 
 <form method="GET">
     <div class="form-group">
-        <label>學年度</label>
-        <select class="form-control" name="year" placeholder="">
-            @for (var i = 0; i < year.Count; i++)
-            {
-                <option>@year[i]</option>
-            }
-        </select>
-    </div>
-    <div class="form-group">
         <label>學制</label>
         <select class="form-control" name="academic" placeholder="">
             @for (var i = 0; i < academic.Count; i++)
-            {
-                <option>@academic[i]</option>
-            }
+                {
+                    if(academic[i] == Model.Academic){
+                        <option selected>@academic[i]</option>
+                    }
+                    else{
+                        <option>@academic[i]</option>
+                    }
+
+                }
         </select>
     </div>
     <div class="form-group">
         <label>科系</label>
         <select class="form-control" name="schoolsys" placeholder="">
             @for (var i = 0; i < schoolsys.Count; i++)
-            {
-                <option>@schoolsys[i]</option>
-            }
+                {
+                    if(schoolsys[i] == Model.Schoolsys){
+                        <option selected>@schoolsys[i]</option>
+                    }
+                    else{
+                        <option>@schoolsys[i]</option>
+                    }
+
+                }
         </select>
     </div>
     <button class="btn btn-primary" type="submit">查詢</button>
@@ -97,12 +122,22 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="progress" style="height: 40px;">
-        <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="15" aria-valuemin="0"
+            <div class="progress" style="height: 40px;">
+                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="15" aria-valuemin="0"
         aria-valuemax="100">必修</div>
-        <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0"
+                <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0"
         aria-valuemax="100">選修</div>
-        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+                <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
         aria-valuemax="100">通識</div>
-    </div>
+            </div>
+}
+else
+{
+    @foreach (Credits credits in Model.Credits)
+    {
+                <p>總學分：@credits.GraduationCredits</p>
+                <p>通識學分：@credits.GeneralCredits</p>
+                <p>必修學分：@credits.RequiredCredits</p>
+                <p>選修學分：@credits.ElectiveCredits</p>
+    }
 }
