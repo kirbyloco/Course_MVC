@@ -32,6 +32,8 @@ namespace course_std
             options.UseSqlite(Configuration.GetConnectionString("CourseContext")));
             services.AddDbContext<CreditsContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("CreditsContext")));
+            services.AddDbContext<LogContext>(options =>
+            options.UseSqlite(Configuration.GetConnectionString("LogContext")));
 
             services.Configure<IdentityOptions>(options =>
             {

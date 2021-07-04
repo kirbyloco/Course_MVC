@@ -1,4 +1,8 @@
+@using Microsoft.AspNetCore.Identity
 @model dynamic
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "初選";
@@ -64,10 +68,12 @@
             <select type="text" name="academic" class="form-control">
                 @for (var i = 0; i < academic.Count; i++)
                 {
-                    if(academic[i] == Model.Academic){
+                    if (academic[i] == Model.Academic)
+                    {
                         <option selected>@academic[i]</option>
                     }
-                    else{
+                    else
+                    {
                         <option>@academic[i]</option>
                     }
 
@@ -79,10 +85,12 @@
             <select type="text" name="schoolsys" class="form-control">
                 @for (var i = 0; i < schoolsys.Count; i++)
                 {
-                    if(schoolsys[i] == Model.Schoolsys){
+                    if (schoolsys[i] == Model.Schoolsys)
+                    {
                         <option selected>@schoolsys[i]</option>
                     }
-                    else{
+                    else
+                    {
                         <option>@schoolsys[i]</option>
                     }
 
@@ -94,10 +102,12 @@
             <select type="text" name="grade" class="form-control">
                 @for (var i = 0; i < grade.Count; i++)
                 {
-                    if(grade[i] == Model.Grade){
+                    if (grade[i] == Model.Grade)
+                    {
                         <option selected>@grade[i]</option>
                     }
-                    else{
+                    else
+                    {
                         <option>@grade[i]</option>
                     }
 
@@ -115,19 +125,20 @@
 <hr>
 
 <div class="row row-cols-1 row-cols-md-3">
-@foreach (Course course in Model.Course)
-{
-    <div class="col mb-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@course.CourseName</h5>
-                <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
-                <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
-                    學分：@course.Credit　教室：@course.Classroom</p>
-                <button class="btn btn-primary">加選</button>
-                <button class="btn btn-primary">課程詳細</button>
+    @foreach (Course course in Model.Course)
+    {
+        <div class="col mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@course.CourseName</h5>
+                    <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
+                    <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
+                        學分：@course.Credit　教室：@course.Classroom</p>
+                    <button class="btn btn-primary"
+                    onclick="addCourse(@course.Id, '@UserManager.GetUserName(User)')">加選</button>
+                    <button class="btn btn-primary">課程詳細</button>
+                </div>
             </div>
         </div>
-    </div>
-}
+    }
 </div>

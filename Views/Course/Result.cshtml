@@ -1,3 +1,9 @@
+@using Microsoft.AspNetCore.Identity
+@model dynamic
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "選課結果";
 }
@@ -12,22 +18,26 @@
         </div>
     </div>
 
-    <h3>尚未到選課結果的時間</h3>
+    @* <h3>尚未到選課結果的時間</h3> *@
 
-    您已經選了
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">設施規劃</h5>
-                    <h6 class="card-subtitle mb-2">授課教師：燈燈燈</h6>
-                    <p class="card-text">必選修：選修　上課時間：(三)11~13<br>
-                        學分：3　教室：育301</p>
-                    <button class="btn btn-warning" onclick="$('.toast').toast('show')">退選</button>
-                    <button class=" btn btn-primary">課程詳細</button>
+    <h2>您已經選了</h2>
+    <div class="row row-cols-1 row-cols-md-3">
+        @foreach (Course course in Model.Course)
+        {
+            <div class="col mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@course.CourseName</h5>
+                        <h6 class="card-subtitle mb-2">授課教師：@course.Teacher</h6>
+                        <p class="card-text">必選修：@course.Reqele　上課時間：@course.Date<br>
+                            學分：@course.Credit　教室：@course.Classroom</p>
+                        <button class="btn btn-primary"
+                        onclick="dropCourse(@course.Id, '@UserManager.GetUserName(User)')">退選</button>
+                        <button class="btn btn-primary">課程詳細</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 
 </div>

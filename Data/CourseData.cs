@@ -11,5 +11,7 @@ namespace course_std.Data
         }
 
         public DbSet<Course> Course { get; set; }
+
     }
+
 }
