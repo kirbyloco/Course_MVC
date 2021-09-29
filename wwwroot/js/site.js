@@ -2,20 +2,22 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-var xmlhttp;
-xmlhttp = new XMLHttpRequest();
-
-xmlhttp.onload = function () {
-    location.reload()
-};
 
 function addCourse(id, username) {
-    xmlhttp.open("POST", "Add?Courseid=" + id + "&Username=" + username, true)
-    xmlhttp.send()
+    $.post({
+        url: "Add?Courseid=" + id + "&Username=" + username,
+        success: function () {
+            alert("加選成功")
+        }
+    }).fail(function () { alert("加選失敗") });
 }
 
 function dropCourse(id, username) {
-    xmlhttp.open("POST", "Drop?Courseid=" + id + "&Username=" + username, true)
-    xmlhttp.send()
-    // setTimeout(location.reload(), 3000)
+    $.post({
+        url: "Drop?Courseid=" + id + "&Username=" + username,
+        success: function () {
+            alert("退選成功")
+        },
+    }).fail(function () { alert("退選失敗") })
+        .always(function () { location.reload() });
 }
