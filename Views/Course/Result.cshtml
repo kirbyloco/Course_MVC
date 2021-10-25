@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Identity
-@model dynamic
+@model Course
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
@@ -22,7 +22,7 @@
 
     <h2>您已經選了</h2>
     <div class="row row-cols-1 row-cols-md-3">
-        @foreach (Course course in Model.Course)
+        @foreach (Course course in ViewBag.Course)
         {
             <div class="col mb-4">
                 <div class="card">

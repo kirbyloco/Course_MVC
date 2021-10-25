@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Identity
-@model dynamic
+@model Course
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
@@ -68,7 +68,7 @@
             <select type="text" name="academic" class="form-control">
                 @for (var i = 0; i < academic.Count; i++)
                 {
-                    if (academic[i] == Model.Academic)
+                    if (academic[i] == ViewBag.Academic)
                     {
                         <option selected>@academic[i]</option>
                     }
@@ -85,7 +85,7 @@
             <select type="text" name="schoolsys" class="form-control">
                 @for (var i = 0; i < schoolsys.Count; i++)
                 {
-                    if (schoolsys[i] == Model.Schoolsys)
+                    if (schoolsys[i] == ViewBag.Schoolsys)
                     {
                         <option selected>@schoolsys[i]</option>
                     }
@@ -102,7 +102,7 @@
             <select type="text" name="grade" class="form-control">
                 @for (var i = 0; i < grade.Count; i++)
                 {
-                    if (grade[i] == Model.Grade)
+                    if (grade[i] == ViewBag.Grade)
                     {
                         <option selected>@grade[i]</option>
                     }
@@ -125,7 +125,7 @@
 <hr>
 
 <div class="row row-cols-1 row-cols-md-3">
-    @foreach (Course course in Model.Course)
+    @foreach (Course course in ViewBag.Course)
     {
         <div class="col mb-4">
             <div class="card">

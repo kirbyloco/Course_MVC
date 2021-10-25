@@ -36,10 +36,9 @@ namespace course_std.Controllers
             return new OkObjectResult(200);
         }
 
-        [HttpPost] // 刪除資料庫有問題
+        [HttpPost]
         public async Task<ActionResult<Log>> Drop(Log log)
         {
-            // var logID = from m in _logcontext.Log where m.Courseid == log.Courseid & m.Username == log.Username select m.ID;
             var logID = from m in _logcontext.Log where m.Courseid == log.Courseid & m.Username == log.Username select m;
             foreach (Log data in logID)
             {
@@ -52,10 +51,6 @@ namespace course_std.Controllers
 
         public async Task<IActionResult> Addrop(string academic, string schoolsys, string grade)
         {
-            dynamic model = new ExpandoObject();
-            model.Academic = academic;
-            model.Schoolsys = schoolsys;
-            model.Grade = grade;
             var courses = from m in _context.Course select m;
             if (!String.IsNullOrEmpty(academic) & !String.IsNullOrEmpty(schoolsys) & !String.IsNullOrEmpty(grade))
             {
@@ -64,20 +59,22 @@ namespace course_std.Controllers
                 courses = courses.Where(s => s.Grade.Contains(grade));
             }
 
-            model.Course = await courses.ToListAsync();
+            ViewBag.Academic = academic;
+            ViewBag.Schoolsys = schoolsys;
+            ViewBag.Grade = grade;
 
-            return View(model);
+            ViewBag.Course = await courses.ToListAsync();
+
+            return View();
         }
         public async Task<IActionResult> Result()
         {
-            dynamic model = new ExpandoObject();
-
             var logdata = from log in _logcontext.Log where log.Username == _userManager.GetUserName(User) select log.Courseid;
             var logdata2 = await logdata.ToListAsync();
             var coursesdata = from m in _context.Course where logdata2.Contains(m.Id) select m;
-            model.Course = await coursesdata.ToListAsync();
+            ViewBag.Course = await coursesdata.ToListAsync();
 
-            return View(model);
+            return View();
         }
 
     }
