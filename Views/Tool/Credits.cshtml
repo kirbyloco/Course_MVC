@@ -138,13 +138,30 @@
 
 @if (Model.Credits.Count != 0)
 {
-    @foreach (Credits credits in Model.Credits)
-    {
-        <p>總學分：@credits.GraduationCredits</p>
-        <p>通識學分：@credits.GeneralCredits</p>
-        <p>必修學分：@credits.RequiredCredits</p>
-        <p>選修學分：@credits.ElectiveCredits</p>
-    }
+    <table class="table table-bordered">
+        <tbody>
+            @foreach (Credits credits in Model.Credits)
+            {
+                <tr>
+                    <td>總學分：</td>
+                    <td>@credits.GraduationCredits</td>
+                </tr>
+                <tr>
+                    <td>通識學分：</td>
+                    <td>@credits.GeneralCredits</td>
+                </tr>
+                <tr>
+                    <td>必修學分：</td>
+                    <td>@credits.RequiredCredits</td>
+                </tr>
+                <tr>
+                    <td>選修學分：</td>
+                    <td>@credits.ElectiveCredits</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
 
 }
 else
