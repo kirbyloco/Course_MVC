@@ -13,13 +13,13 @@ namespace course_std.Models
         [Display(Name = "科系")]
         public string Schoolsys { get; set; }
         [Display(Name = "畢業學分")]
-        public string GraduationCredits { get; set; }
+        public int GraduationCredits { get; set; }
         [Display(Name = "通識學分")]
-        public string GeneralCredits { get; set; }
+        public int GeneralCredits { get; set; }
         [Display(Name = "必修學分")]
-        public string RequiredCredits { get; set; }
+        public int RequiredCredits { get; set; }
         [Display(Name = "選修學分")]
-        public string ElectiveCredits { get; set; }
+        public int ElectiveCredits { get; set; }
 
     }
 }
